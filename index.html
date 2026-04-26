@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>SYNTHWAVE ASTEROIDS</title>
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+<div id="game-container">
+  <canvas id="gameCanvas"></canvas>
+  <div id="welcome-screen" class="screen active">
+    <canvas id="welcomeCanvas"></canvas>
+    <div class="welcome-content">
+      <h1 class="game-title">SYNTHWAVE<br><span class="title-accent">ASTEROIDS</span></h1>
+      <div class="subtitle">PRESS START</div>
+      <div class="controls-info">
+        <p>ARROW KEYS / WASD / GAMEPAD / TOUCH</p>
+        <p>SPACE / TAP TO FIRE</p>
+      </div>
+      <button id="start-btn" class="neon-btn">START GAME</button>
+      <div class="credit">INSERT COIN</div>
+    </div>
+  </div>
+  <div id="hud" class="hidden">
+    <div id="hud-top">
+      <div id="score-display">SCORE: <span id="score">0</span></div>
+      <div id="level-display">WAVE: <span id="level">1</span></div>
+      <div id="lives-display">LIVES: <span id="lives"></span></div>
+    </div>
+    <div id="hud-bottom">
+      <div id="weapon-display">WEAPON: <span id="weapon-name">PULSE</span></div>
+    </div>
+  </div>
+  <div id="mobile-controls" class="hidden">
+    <div id="mobile-dpad">
+      <button class="mobile-btn dpad-up" data-action="thrust">&#9650;</button>
+      <button class="mobile-btn dpad-left" data-action="left">&#9664;</button>
+      <button class="mobile-btn dpad-right" data-action="right">&#9654;</button>
+    </div>
+    <div id="mobile-fire">
+      <button class="mobile-btn fire-btn" data-action="fire">FIRE</button>
+    </div>
+  </div>
+  <div id="pause-screen" class="screen">
+    <h2 class="neon-text">PAUSED</h2>
+    <button id="resume-btn" class="neon-btn">RESUME</button>
+  </div>
+  <div id="gameover-screen" class="screen">
+    <h2 class="neon-text gameover-title">GAME OVER</h2>
+    <div id="final-score-display">SCORE: <span id="final-score">0</span></div>
+    <div id="highscore-entry" class="hidden">
+      <p class="neon-text-sm">NEW HIGH SCORE!</p>
+      <div id="initials-input">
+        <input type="text" id="initial-1" class="initial-box" maxlength="1" autocomplete="off" autocorrect="off" autocapitalize="characters">
+        <input type="text" id="initial-2" class="initial-box" maxlength="1" autocomplete="off" autocorrect="off" autocapitalize="characters">
+        <input type="text" id="initial-3" class="initial-box" maxlength="1" autocomplete="off" autocorrect="off" autocapitalize="characters">
+      </div>
+      <button id="submit-score-btn" class="neon-btn">SUBMIT</button>
+    </div>
+    <div id="highscore-table">
+      <h3 class="neon-text-sm">HIGH SCORES</h3>
+      <ol id="highscore-list"></ol>
+    </div>
+    <button id="restart-btn" class="neon-btn">PLAY AGAIN</button>
+  </div>
+</div>
+<script src="src/audio.js"></script>
+<script src="src/game-core.js"></script>
+<script src="src/game-render.js"></script>
+<script src="src/game-loop.js"></script>
+</body>
+</html>
